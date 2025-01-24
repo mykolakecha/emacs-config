@@ -69,3 +69,9 @@
 (ido-mode t)
 (put 'upcase-region 'disabled nil)
 
+;; Custom commands
+(defun cd-allt ()
+  "Change the current directory to ~/Dropbox/alltexts."
+  (interactive)
+  (cd "~/Dropbox/alltexts")
+  (message "Changed directory to ~/Dropbox/alltexts"))
