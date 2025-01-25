@@ -69,9 +69,20 @@
 (ido-mode t)
 (put 'upcase-region 'disabled nil)
 
-;; Custom commands
+;; ## Custom commands
+
 (defun cd-allt ()
-  "Change the current directory to ~/Dropbox/alltexts."
+  "Change the current directory to ~/Dropbox/alltexts. (hardcoded)"
   (interactive)
   (cd "~/Dropbox/alltexts")
   (message "Changed directory to ~/Dropbox/alltexts"))
+
+
+(defun my-date-tags ()
+  "Insert date tags"
+  (interactive)
+  (let ((current-date (format-time-string "%Y-%m-%d"))) 
+    (insert (format ">>> %s\n\n\n\n<<< %s" current-date current-date))
+	(previous-line 2)))
+
+(global-set-key (kbd "C-c d") 'my-date-tags )

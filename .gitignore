@@ -1,0 +1,11 @@
+session.*
+projectile*
+projects
+auto-save-list
+eln-cache
+elpa
+init.el~
+\#init.eli\#
+.\#ido.last
+ido.last~
+.gitignore.swp
