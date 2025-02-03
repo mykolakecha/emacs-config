@@ -15,7 +15,7 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("~/Dropbox/alltexts/org/"))
  '(package-selected-packages
-   '(flx-ido fix-ido projectile docker-compose-mode dockerfile-mode terraform-mode yaml-mode php-mode markdown-mode neotree darcula-theme)))
+   '(expand-region flx-ido fix-ido projectile docker-compose-mode dockerfile-mode terraform-mode yaml-mode php-mode markdown-mode neotree darcula-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -33,13 +33,18 @@
   (package-refresh-contents)
   (package-install 'neotree))
 
+(unless (package-installed-p 'expand-region)
+  (package-refresh-contents)
+  (package-install 'expand-region))
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+
 (setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
 
 (unless (package-installed-p 'projectile)
   (package-install 'projectile))
-
-;(unless (package-installed-p 'fix-ido)
-;  (package-install 'fix-ido))
 
 (require 'projectile)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -86,3 +91,8 @@
 	(previous-line 2)))
 
 (global-set-key (kbd "C-c d") 'my-date-tags )
+
+
+;(unless (package-installed-p 'fix-ido); to-fix, or choose another file lister
+;  (package-install 'fix-ido))
+
